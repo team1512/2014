@@ -1,15 +1,21 @@
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wpi.first.wpilibj.templates.commands;
+
+import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 
 /**
  *
- * @author bradmiller altered by KerrySwartz
+ * @author dudelson
  */
-public class ExampleCommand extends CommandBase {
-
-    public ExampleCommand() {
+public class Drive extends CommandBase {
+    
+    public Drive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -18,7 +24,8 @@ public class ExampleCommand extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+        System.out.println("[DriveTrain] executing...");
+        driveTrain.tank(oi.stick.getYL(), oi.stick.getYR());
     }
 
     // Make this return true when this Command no longer needs to run execute()
