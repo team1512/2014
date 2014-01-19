@@ -1,13 +1,16 @@
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author bradmiller altered by KerrySwartz
+ * @author robot
  */
-public class ExampleCommand extends CommandBase {
-
-    public ExampleCommand() {
+public class newCommand extends CommandBase {
+    
+    public newCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -18,7 +21,6 @@ public class ExampleCommand extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
     }
 
     // Make this return true when this Command no longer needs to run execute()
