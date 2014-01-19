@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+import edu.wpi.first.wpilibj.templates.commands.Drive;
 import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 
 /**
@@ -24,6 +25,7 @@ import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
  */
 public class RobotTemplate extends IterativeRobot {
 
+    Drive drive = new Drive();
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -52,6 +54,7 @@ public class RobotTemplate extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         System.out.println("Enabled! Hello, FIRST!!");
+        drive.start();
     }
 
     /**
@@ -59,6 +62,10 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+    }
+    
+    public void disabledInit() {
+        drive.cancel();
     }
     
     /**
