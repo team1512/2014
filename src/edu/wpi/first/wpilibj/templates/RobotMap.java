@@ -20,4 +20,5 @@ public class RobotMap {
     public static final int right_front_jag = 2;
     public static final int left_rear_jag = 3;
     public static final int right_rear_jag = 4;
+    public static final int blanket_relay = 1;
 }

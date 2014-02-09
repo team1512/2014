@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.templates.subsystems.*;
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
  * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
- * @author Author
  */
 public abstract class CommandBase extends Command {
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    DriveTrain drive = new DriveTrain();
+    static DriveTrain drive = new DriveTrain();
+    static Blanket blanket = new Blanket();
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
