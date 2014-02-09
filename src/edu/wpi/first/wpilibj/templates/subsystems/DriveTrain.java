@@ -18,6 +18,13 @@ public class DriveTrain extends Subsystem {
     private final double DRIVE_SCALE = 0.7;
     private final double DEADZONE = 0.2;
     
+    //rpm of the slowest wheel
+    private final double RPM_BASELINE = 3025.22;
+    private final double LF_RPM_SCALE = RPM_BASELINE / 3288.47;
+    private final double RF_RPM_SCALE = RPM_BASELINE / 3381.72;
+    private final double LB_RPM_SCALE = 1;
+    private final double RB_RPM_SCALE = RPM_BASELINE / 3449.11;
+    
     private Talon lf, lr, rf, rr;
     
     public DriveTrain() {
@@ -69,9 +76,9 @@ public class DriveTrain extends Subsystem {
         rot=rot*DRIVE_SCALE;
         
         
-        lf.set(y+rot-x);
-        rf.set(y-rot+x);
-        lr.set(y+rot+x);
-        rr.set(y-rot-x);
+        lf.set((y+rot-x)*LF_RPM_SCALE);
+        rf.set((y-rot+x)*RF_RPM_SCALE);
+        lr.set((y+rot+x)*LB_RPM_SCALE);
+        rr.set((y-rot-x)*RB_RPM_SCALE);
     }
 }
