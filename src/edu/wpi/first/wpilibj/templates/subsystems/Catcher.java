@@ -16,51 +16,51 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  * @author David
  */
-public class Blanket extends Subsystem {
-    Relay blanketshooter;
+public class Catcher extends Subsystem {
+    Relay catchershooter;
     DigitalInput limTop, limBot;
  
     
-    public Blanket() {
-        blanketshooter = new Relay(RobotMap.blanket_relay);
-        limTop = new DigitalInput(RobotMap.blanket_Sensor_Up);
-        limBot = new DigitalInput(RobotMap.blanket_Sensor_Down);
+    public Catcher() {
+        catchershooter = new Relay(RobotMap.catcher_relay);
+        limTop = new DigitalInput(RobotMap.catcher_Sensor_Up);
+        limBot = new DigitalInput(RobotMap.catcher_Sensor_Down);
     }
     
     protected void initDefaultCommand() {
         //this subsystem will look for input from the xbox by default
-        setDefaultCommand(new RunBlanket());
+        //setDefaultCommand(new RunClimber());
     }
     
       //Methods to explicitly set the state of the feeder relay
     public void turnOff() {
-        blanketshooter.set(Relay.Value.kOff);
-        SmartDashboard.putString("Blanket Relay: ", "OFF");
+        catchershooter.set(Relay.Value.kOff);
+        SmartDashboard.putString("Catcher Relay: ", "OFF");
     }
     
     public void setForward() {
-        blanketshooter.set(Relay.Value.kForward);
-        SmartDashboard.putString("Blanket Relay: ", "CLOCKWISE");
+        catchershooter.set(Relay.Value.kForward);
+        SmartDashboard.putString("Catcher Relay: ", "CLOCKWISE");
     }
     
     public void setBackward() {
-        blanketshooter.set(Relay.Value.kReverse);
-        SmartDashboard.putString("Blanket Relay: ", "CCLOCKWISE");
+        catchershooter.set(Relay.Value.kReverse);
+        SmartDashboard.putString("Catcher Relay: ", "CCLOCKWISE");
     }
    
     
     
     //get the state of the feeder as a string
     public String getState() {
-        return blanketshooter.get().toString();
+        return catchershooter.get().toString();
     }
     
     public boolean getLimTop() {
-        return limTop.get();
+        return !limTop.get();
     }
     
     public boolean getLimBot() {
-        return limBot.get();
+        return !limBot.get();
     }
     
 }

@@ -1,19 +1,19 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author robot
+ * @author robots
  */
-public class Drive extends CommandBase {
+public class Auto extends CommandBase {
     
-    public Drive() {
+    public Auto() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(drive);
     }
 
     // Called just before this Command runs the first time
@@ -22,8 +22,6 @@ public class Drive extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drive.mecanum(oi.xbox1.getXL(), oi.xbox1.getYL(), oi.xbox1.getXR());
-        
     }
 
     // Make this return true when this Command no longer needs to run execute()

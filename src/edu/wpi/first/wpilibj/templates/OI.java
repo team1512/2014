@@ -9,12 +9,14 @@ import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    private int JOYSTICK_PORT = 2;
+    private final int JOYSTICK_1_PORT = 1;
+    private final int JOYSTICK_2_PORT = 2;
     
-    public Team1512Joystick stick;
-    
+    public static Team1512Joystick xbox1, xbox2;
+        
     public OI() {
-        stick = new Team1512Joystick(JOYSTICK_PORT);
+        xbox1 = new Team1512Joystick(JOYSTICK_1_PORT);
+        xbox2 = new Team1512Joystick(JOYSTICK_2_PORT);
     }
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.

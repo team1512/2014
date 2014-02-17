@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
  * @author robot
  */
 public class DriveTrain extends Subsystem {
-    private final double DRIVE_SCALE = 0.7;
+    private final double DRIVE_SCALE = 1.0;
     private final double DEADZONE = 0.2;
     
     //rpm of the slowest wheel
@@ -76,9 +76,9 @@ public class DriveTrain extends Subsystem {
         rot=rot*DRIVE_SCALE;
         
         
-        lf.set((y+rot-x)*LF_RPM_SCALE);
-        rf.set((y-rot+x)*RF_RPM_SCALE);
-        lr.set((y+rot+x)*LB_RPM_SCALE);
-        rr.set((y-rot-x)*RB_RPM_SCALE);
+        lf.set((y-rot-x)*LF_RPM_SCALE);
+        rf.set((y+rot+x)*RF_RPM_SCALE);
+        lr.set((y-rot+x)*LB_RPM_SCALE);
+        rr.set((y+rot-x)*RB_RPM_SCALE);
     }
 }

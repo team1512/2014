@@ -24,6 +24,9 @@ import edu.wpi.first.wpilibj.templates.commands.*;
 public class RobotTemplate extends IterativeRobot {
     Drive drive = new Drive();
     RunBlanket blanket = new RunBlanket();
+    RunDefense defense = new RunDefense();
+    RunCatcher catcher = new RunCatcher();
+    RunShooter shooter = new RunShooter();
 
     /**
      * This function is run when the robot is first started up and should be
@@ -55,6 +58,9 @@ public class RobotTemplate extends IterativeRobot {
         System.out.println("Enabled! Hello, FIRST!!");
         drive.start();
         blanket.start();
+        defense.start();
+        catcher.start();
+        shooter.start();
     }
 
     /**
@@ -67,6 +73,9 @@ public class RobotTemplate extends IterativeRobot {
     public void disabledInit() {
         drive.cancel();
         blanket.cancel();
+        defense.cancel();
+        catcher.cancel();
+        shooter.cancel();
     }
     
     /**

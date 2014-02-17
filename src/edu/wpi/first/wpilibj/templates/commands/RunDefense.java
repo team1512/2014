@@ -31,15 +31,15 @@ public class RunDefense extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         //y toggles the climber on/off
-        if (oi.stick.isButtonPressed(Team1512Joystick.XBOX_BUTTON_Y))
-        //if (oi.stick.getLTRG()) //&& blanket.getLimTop() == false
+        if (oi.xbox2.isButtonPressed(Team1512Joystick.XBOX_BUTTON_Y) /*&& defense.getLimTop() == false */)
+        //if (oi.stick.getLTRG()) 
         {
               defense.setForward();
+              
                 //write the state of the blanket to the Smart Dashboard
                 SmartDashboard.putString("Defense: ", "CLOCKWISE");
                 //System.out.println("Climber off");
-        } else if (oi.stick.isButtonPressed(Team1512Joystick.XBOX_BUTTON_A)) 
-        //&& blanket.getLimBot() == false
+        } else if (oi.xbox2.isButtonPressed(Team1512Joystick.XBOX_BUTTON_A) /* && defense.getLimBot() == false */)
         {
               defense.setBackward();
                 //write the state of the blanket to the Smart Dashboard
@@ -61,12 +61,12 @@ public class RunDefense extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        // blanket.turnOff();
+        defense.turnOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        //blanket.turnOff();
+        defense.turnOff();
     }
 }

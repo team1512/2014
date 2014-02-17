@@ -31,7 +31,7 @@ public class Team1512Joystick extends Joystick {
     
     //the state of a button is index XBOX_BUTTON - 1
     private boolean[] buttonStates = new boolean[10];
-    
+       
     public Team1512Joystick(int port) {
         super(port);
     }
@@ -90,4 +90,11 @@ public class Team1512Joystick extends Joystick {
         }
         return false;
     } 
+    
+    public boolean whileButtonPressed(int button) {
+        if (getRawButton(button)){
+            return true;
+        }
+        return false;
+    }
 }
