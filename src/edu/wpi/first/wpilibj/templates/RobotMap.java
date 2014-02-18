@@ -23,10 +23,10 @@ public class RobotMap {
     public static final int left_rear_jag = 3;
     public static final int right_rear_jag = 4;
     public static final int shooter_jag = 5;
-    
+    public static final int defense_jag = 6; //lead screw to raise/lower defense arm
+   
     //Relays:
     public static final int blanket_relay = 1;//eskimo-blanket ball holder/raiser
-    public static final int defense_relay = 2; //lead screw to raise/lower defense arm
     public static final int catcher_relay = 3; //open/close catcher arms
     public static final int collector_relay = 4; //run collector wheels
     
