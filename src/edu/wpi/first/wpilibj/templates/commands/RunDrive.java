@@ -1,23 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.templates.Team1512Joystick;
 
-/**
- *
- * @author robot
- */
-public class Drive extends CommandBase {
+public class RunDrive extends CommandBase {
+    //Uses controller 1
     
-    public Drive() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public RunDrive() {
+        //reserve the drive
         requires(drive);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        SmartDashboard.putString("Driver: ", "OFF");
     }
 
     // Called repeatedly when this Command is scheduled to run

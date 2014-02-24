@@ -6,7 +6,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 //import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 
@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
  *
  * @author robot
  */
-public class DriveTrain extends Subsystem {
+public class Drive extends Subsystem {
     private final double DRIVE_SCALE = 1.0;
     private final double DEADZONE = 0.2;
     
@@ -26,13 +26,15 @@ public class DriveTrain extends Subsystem {
     private final double RB_RPM_SCALE = RPM_BASELINE / 3449.11;
     
     private Talon lf, lr, rf, rr;
+    private Gyro gyro;
     
-    public DriveTrain() {
+    public Drive() {
         super();
         lf = new Talon(RobotMap.left_front_jag);
         rf = new Talon(RobotMap.right_front_jag);
         lr = new Talon(RobotMap.left_rear_jag);
         rr = new Talon(RobotMap.right_rear_jag);
+        gyro = new Gyro(RobotMap.gyro);
     }
 
     public void initDefaultCommand() {
@@ -80,5 +82,13 @@ public class DriveTrain extends Subsystem {
         rf.set((y+rot+x)*RF_RPM_SCALE);
         lr.set((y-rot+x)*LB_RPM_SCALE);
         rr.set((y+rot-x)*RB_RPM_SCALE);
+    }
+    
+    public double getGyroHeading() {
+        return gyro.getAngle();
+    }
+    
+    public void zeroGyro() {
+        gyro.reset();
     }
 }

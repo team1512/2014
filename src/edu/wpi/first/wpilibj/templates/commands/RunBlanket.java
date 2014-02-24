@@ -1,21 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.Team1512Joystick;
 
-/**
- *
- * @author robot
- */
 public class RunBlanket extends CommandBase {
-    /* The blanket class is controlled by xbox #2.
-     * It uses a relay to run a motor forward and backward
-     */
+    //Uses controller 2
 
     public RunBlanket() {
         //reserve the blanket
@@ -24,21 +12,18 @@ public class RunBlanket extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //the climber is initially off
         SmartDashboard.putString("Blanket: ", "OFF");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
 
-        if (oi.xbox2.getRawButton(Team1512Joystick.XBOX_BUTTON_LEFT_BUMPER)
-                /*&& blanket.getLimTop() == false */) {
+        if (oi.xbox2.getRawButton(Team1512Joystick.XBOX_BUTTON_A)) {
             blanket.setForward();
             //write the state of the blanket to the Smart Dashboard
             SmartDashboard.putString("Blanket: ", "CLOCKWISE");
             //System.out.println("Climber off");
-        } else if (oi.xbox2.getRawButton(Team1512Joystick.XBOX_BUTTON_RIGHT_BUMPER)
-                /* && blanket.getLimBot() == false */) {
+        } else if (oi.xbox2.getRawButton(Team1512Joystick.XBOX_BUTTON_Y)) {
             blanket.setBackward();
             //write the state of the blanket to the Smart Dashboard
             SmartDashboard.putString("Blanket: ", "CCLOCKWISE");

@@ -3,13 +3,7 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates;
-
 import edu.wpi.first.wpilibj.Joystick;
-
-/**
- *
- * @author David
- */
 
 public class Team1512Joystick extends Joystick {
     //"Raw" values for every button/axis on the xbox controller
@@ -53,8 +47,6 @@ public class Team1512Joystick extends Joystick {
     public double getXR() {
         return getRawAxis(XBOX_AXIS_RIGHT_X);
     }
-    //@Nate 
-    //adding some triggers for arcade drive
     
     public boolean getLTRG() {
         //if the left trigger is pressed the analog value will be false
@@ -68,7 +60,8 @@ public class Team1512Joystick extends Joystick {
         else return false;
     }
     
-    /* This method returns true ONLY ONCE when a button is
+    /**
+     * This method returns true ONLY ONCE when a button is
      * pressed/held down. That is, when the user initially
      * presses the button, a value of true will be returned, 
      * however in subsequent calls to this method, if the
@@ -91,6 +84,10 @@ public class Team1512Joystick extends Joystick {
         return false;
     } 
     
+    /**
+     * Unused function
+     * Use getRawButton instead
+     */
     public boolean whileButtonPressed(int button) {
         if (getRawButton(button)){
             return true;

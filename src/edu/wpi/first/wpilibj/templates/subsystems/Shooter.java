@@ -1,9 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.subsystems;
-
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.*;
 import edu.wpi.first.wpilibj.templates.RobotMap;
@@ -11,10 +6,6 @@ import edu.wpi.first.wpilibj.templates.commands.*;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-/**
- *
- * @author David
- */
 public class Shooter extends Subsystem {
     private Jaguar shooter;
     DigitalInput limTop, limBot;
