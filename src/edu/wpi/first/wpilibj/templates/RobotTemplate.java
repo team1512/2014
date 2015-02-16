@@ -4,17 +4,11 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates;
-
-
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
-
+import edu.wpi.first.wpilibj.templates.commands.*;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -23,7 +17,13 @@ import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
  * directory.
  */
 public class RobotTemplate extends IterativeRobot {
-
+    RunDrive drive = new RunDrive();
+    RunBlanket blanket = new RunBlanket();
+    RunDefense defense = new RunDefense();
+    RunCatcher catcher = new RunCatcher();
+    RunShooter shooter = new RunShooter();
+    RunCollector collector = new RunCollector();
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -46,12 +46,21 @@ public class RobotTemplate extends IterativeRobot {
         Scheduler.getInstance().run();
     }
 
+    /**
+     * This makes sure that the autonomous stops running when
+     * teleop starts running. If you want the autonomous to
+     * continue until interrupted by another command, remove
+     * this line or comment it out.
+    */
     public void teleopInit() {
-	// This makes sure that the autonomous stops running when
-        // teleop starts running. If you want the autonomous to 
-        // continue until interrupted by another command, remove
-        // this line or comment it out.
         System.out.println("Enabled! Hello, FIRST!!");
+        drive.start();
+        blanket.start();
+        defense.start();
+        catcher.start();
+        shooter.start();
+        collector.start();
+ 
     }
 
     /**
@@ -59,6 +68,15 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+    }
+    
+    public void disabledInit() {
+        drive.cancel();
+        blanket.cancel();
+        defense.cancel();
+        catcher.cancel();
+        shooter.cancel();
+        collector.cancel();
     }
     
     /**

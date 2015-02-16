@@ -1,14 +1,18 @@
-
 package edu.wpi.first.wpilibj.templates;
-
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+    private final int JOYSTICK_1_PORT = 1;
+    private final int JOYSTICK_2_PORT = 2;
+    
+    public static Team1512Joystick xbox1, xbox2;
+        
+    public OI() {
+        xbox1 = new Team1512Joystick(JOYSTICK_1_PORT);
+        xbox2 = new Team1512Joystick(JOYSTICK_2_PORT);
+    }
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
     // You create one by telling it which joystick it's on and which button
